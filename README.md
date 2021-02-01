@@ -74,6 +74,15 @@
 * -docker-compose.yml
 * -requirements.txt
 * sudo docker-compose run web django-admin startproject composeexample . #สร้าง django project
+* เปลี่ยน db ของ django
+
+* 'ENGINE': 'django.db.backends.postgresql',
+*        'NAME': 'postgres',
+*        'USER': 'postgres',
+*        'PASSWORD': 'postgres',
+*        'HOST': 'db',
+*        'PORT': 5432,
+
 * docker-compose up #run docker-compose
 
 # requirements.txt
