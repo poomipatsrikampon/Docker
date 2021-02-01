@@ -2,7 +2,7 @@
 # how to use docker 
 * Dockerfile คือ ไฟล์ Docker ใช้กำหนดสิ่งต่างๆที่เราต้องการในการสร้าง Image
 
-# คำสั่งที่ใช้ใน Dockerfile
+# คำสั่งที่ใช้ในการตั้งค่า Dockerfile
 
 * FROM เลือก base image
 * RUN execute command
@@ -30,3 +30,19 @@
 * COPY requirements.txt /code/                #copy file เข้า image
 * RUN pip install -r requirements.txt         #execute command
 * COPY . /code/                               #copy file เข้า image
+
+# คำสั่งที่ใช้ในการตั้งค่า docker-compose
+
+* version ใช้เลือก version ของ Compose file 
+* services ระบุ container 
+* image เรียกใช้ Image จาก Docker Hub Registry
+* ports กำหนด port mapping ระหว่าง host กับ container
+* volumes สร้าง volumes  2 แบบ ถ้าอยู่ภายในของ service เป็นการเชื่อมต่อกับ volume ถ้าอยู่ระดับเดียวกับ services: จะเป็นการสร้าง volume
+* build ใช้ image ที่สร้างจาก Dockerfile โดยกำหนด path ไปหา Dockerfile
+* links เชื่อม service เข้าด้วยกัน 
+* restart: alway ให้ service นั้น restart อัตโนมัติเมื่อเกิดข้อผิดพลาด หรือทำงานอัตโนมัติเมื่อเปิดเครื่อง
+* network — สร้างการสื่อสารกันระหว่าง container
+* memory limit จำกัดการใช้งาน ram ที่ใช้สร้าง container
+* context path ของ dockerfile ใช้ในการสร้าง container
+* memory reservations กำหนดการใช้งาน ram ขั้นต่ำสำหรับ container
+* depens_on ให้ service เริ่มทำงานหลังจาก service ที่ depens_on ทำงานแล้ว
