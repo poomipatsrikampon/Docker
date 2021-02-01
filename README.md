@@ -72,11 +72,11 @@
 * สร้างไฟล์
 * -Dockerfile
 * -docker-compose.yml
-* -requirement.txt
+* -requirements.txt
 * sudo docker-compose run web django-admin startproject composeexample . #สร้าง django project
 * docker-compose up #run docker-compose
 
-# requirement.txt
+# requirements.txt
 * Django>=3.0,<4.0
 * psycopg2-binary>=2.8
 * djangorestframework>=3.12.2
