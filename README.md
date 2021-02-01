@@ -1,8 +1,8 @@
 # Docker
 # how to use docker 
-# Dockerfile คือ ไฟล์ Docker ใช้กำหนดสิ่งต่างๆที่เราต้องการในการสร้าง Image
+* Dockerfile คือ ไฟล์ Docker ใช้กำหนดสิ่งต่างๆที่เราต้องการในการสร้าง Image
 
-# คำสั่งที่ใช่ใน Dockerfile
+# คำสั่งที่ใช้ใน Dockerfile
 
 * FROM เลือก base image
 * RUN execute command
