@@ -4,7 +4,6 @@
 
 # คำสั่งที่ใช่ใน Dockerfile
 
-##################################################################
 * FROM เลือก base image
 * RUN execute command
 * CMD execute command แต่มีได้แค่ครั้งเดียวใน file        ถ้ามีมากกว่าหนึ่งจะใช้อันสุดท้าย หรือใช้เป็น default parameter ให้ ENTRYPOINT
@@ -21,14 +20,13 @@
 * ONBUILD ใช้สำหรับ run คำสั่งแต่ให้รอ trigger เพื่อทำงานต่อในกรณีที่ต้องรอให้ build ตัวอื่นก่อน
 * STOPSIGNAL สั่งให้หยุดโดยใช้ system call signal
 * SHELL เปลี่ยนไปใช้ shell ที่กำหนด
-##################################################################
+
 
 # ตัวอย่างการสร้าง Dockerfile
-##################################################################
+
 * FROM python:3                               #กำหนด base Image
 * ENV PYTHONUNBUFFERED=1                      #ตัวแปร environment
 * WORKDIR /code                               #working directory
 * COPY requirements.txt /code/                #copy file เข้า image
 * RUN pip install -r requirements.txt         #execute command
 * COPY . /code/                               #copy file เข้า image
-##################################################################
