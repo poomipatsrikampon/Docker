@@ -24,12 +24,12 @@
 
 # ตัวอย่างการสร้าง Dockerfile
 
-* FROM python:3                               #กำหนด base Image
-* ENV PYTHONUNBUFFERED=1                      #ตัวแปร environment
-* WORKDIR /code                               #working directory
-* COPY requirements.txt /code/                #copy file เข้า image
-* RUN pip install -r requirements.txt         #execute command
-* COPY . /code/                               #copy file เข้า image
+* FROM python:3                               
+* ENV PYTHONUNBUFFERED=1                     
+* WORKDIR /code                               
+* COPY requirements.txt /code/                
+* RUN pip install -r requirements.txt        
+* COPY . /code/                               
 
 # คำสั่งที่ใช้ในการตั้งค่า docker-compose
 
@@ -46,3 +46,38 @@
 * context path ของ dockerfile ใช้ในการสร้าง container
 * memory reservations กำหนดการใช้งาน ram ขั้นต่ำสำหรับ container
 * depens_on ให้ service เริ่มทำงานหลังจาก service ที่ depens_on ทำงานแล้ว
+
+# ตัวอย่างการสร้าง docker-compose.yml
+
+* version: "3.9"
+   
+* services:
+*  db:
+*    image: postgres
+*    environment:
+*      - POSTGRES_DB=postgres
+*      - POSTGRES_USER=postgres
+*      - POSTGRES_PASSWORD=postgres
+*  web:
+*    build: .
+*    command: python manage.py runserver 0.0.0.0:8000
+*    volumes:
+*      - .:/code
+*    ports:
+*      - "8000:8000"
+*    depends_on:
+*      - db
+
+# ทดลองสร้าง Image
+* สร้างไฟล์
+* -Dockerfile
+* -docker-compose.yml
+* -requirement.txt
+* sudo docker-compose run web django-admin startproject composeexample . #สร้าง django project
+* docker-compose up #run docker-compose
+
+# requirement.txt
+* Django>=3.0,<4.0
+* psycopg2-binary>=2.8
+* djangorestframework>=3.12.2
+
